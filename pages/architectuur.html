@@ -59,6 +59,17 @@
                 <!-- Initial loading/placeholder message (will be replaced by JS) -->
                 <div class="gallery-message">Galerij laden...</div>
             </div>
+            
+            <!-- Fallback content in case JS fails to load -->
+            <noscript>
+                <p>JavaScript is vereist om de galerij te bekijken.</p>
+            </noscript>
+            
+            <!-- Debug information - remove after fixing -->
+            <div id="gallery-debug" style="margin-top: 20px; padding: 10px; background: #f8f8f8; border: 1px solid #ddd; display: none;">
+                <h3>Debug Info:</h3>
+                <div id="debug-output"></div>
+            </div>
         </section>
     </main>
 
@@ -74,30 +85,44 @@
     <!-- Custom Gallery Script (path relative to 'pages' directory) -->
     <script src="../js/gallery.js"></script>
 
-    <!-- Add a visually hidden class for labels & skip links -->
-    <style>
-        .visually-hidden {
-            position: absolute !important;
-            height: 1px; width: 1px;
-            overflow: hidden;
-            clip: rect(1px, 1px, 1px, 1px);
-            white-space: nowrap; /* Keep screen readers happy */
-        }
-         /* Show skip link on focus */
-        .skip-link:focus {
-            position: static !important;
-            height: auto; width: auto;
-            overflow: visible;
-            clip: auto;
-            white-space: normal;
-            display: inline-block; /* Or block, depending on desired styling */
-            padding: 0.5em;
-            background-color: #eee;
-            color: #333;
-            text-decoration: none;
-            border: 1px solid #ccc;
-            margin: 0.5em;
-        }
-    </style>
+    <!-- Add this before the closing </body> tag -->
+    <script>
+        // Debug script to check if gallery.js is loading properly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show debug panel
+            document.getElementById('gallery-debug').style.display = 'block';
+            
+            const debugOutput = document.getElementById('debug-output');
+            
+            // Check if category is detected correctly
+            const categoryHeading = document.querySelector('.category-header h2');
+            const categoryName = categoryHeading ? categoryHeading.textContent.trim() : 'Not found';
+            debugOutput.innerHTML += `<p>Detected category: "${categoryName}"</p>`;
+            
+            // Check if images directory exists
+            const imgPath = `../images/portfolio/${categoryName.toLowerCase()}`;
+            debugOutput.innerHTML += `<p>Expected images path: "${imgPath}"</p>`;
+            
+            // Add a manual gallery item as fallback
+            const galleryGrid = document.querySelector('.gallery-grid');
+            if (galleryGrid) {
+                // Clear loading message
+                galleryGrid.innerHTML = '';
+                
+                // Add a test image (update path to an actual image that exists)
+                galleryGrid.innerHTML += `
+                    <div class="gallery-item">
+                        <a href="../images/portfolio/architectuur/sample.jpg" data-lightbox="architectuur" data-title="Test Image">
+                            <img src="../images/portfolio/architectuur/sample.jpg" alt="Test architectuur image">
+                        </a>
+                    </div>
+                `;
+                
+                debugOutput.innerHTML += `<p>Added fallback test image</p>`;
+            } else {
+                debugOutput.innerHTML += `<p>ERROR: Gallery grid element not found</p>`;
+            }
+        });
+    </script>
 </body>
 </html>
