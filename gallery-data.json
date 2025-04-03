@@ -15,9 +15,9 @@
     "../assets/images/portfolio/kunst/kunst-3.jpg"
   ],
   "Architectuur": [
-    "johnportfolio/assets/images/portfolio/architectuur/Architectuur1.jpg",
-    "johnportfolio/assets/images/portfolio/architectuur/Architectuur2.jpg",
-    "johnportfolio/assets/images/portfolio/architectuur/Architectuur3.jpg"
+    "../assets/images/portfolio/architectuur/Architectuur1.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur2.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur3.jpg"
   ],
   "straatfotografie": [
     "../assets/images/portfolio/straatfotografie/straat-1.jpg",
