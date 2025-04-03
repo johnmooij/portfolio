@@ -8,10 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Determine Category ---
-    // Get the full title and convert to lowercase for matching
+    // Simple approach: derive from the H2 text. Assumes H2 text starts with the category name.
+    // Example H2: "Architectuur Fotografie" -> categoryKey = "architectuur"
     const fullTitle = categoryTitleElement.textContent.trim();
-    // Use the entire heading text as the category key, not just the first word
-    const categoryKey = fullTitle.toLowerCase();
+    // Extract the first word and convert to lowercase
+    const categoryKey = fullTitle.split(' ')[0].toLowerCase();
+    
+    console.log("Detected category key:", categoryKey); // Add this for debugging
 
     if (!categoryKey) {
         displayMessage("Kon categorie niet bepalen.", true);
