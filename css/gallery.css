@@ -183,3 +183,23 @@
      /* Default style looks ok, can customize if needed */
     border: 2px solid #fca311; /* Orange (web) border for consistency */
 }
+
+
+/* Add these styles to ensure Lightbox displays properly */
+.lightbox {
+    z-index: 9999;
+}
+
+.lb-outerContainer, .lb-dataContainer {
+    max-width: 90vw;
+}
+
+.lb-image {
+    max-width: 85vw;
+    max-height: 85vh;
+}
+
+/* Ensure gallery items have proper cursor */
+.gallery-item a {
+    cursor: pointer;
+}

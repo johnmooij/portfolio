@@ -63,6 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // This is the key part - all images must have the same data-lightbox attribute value
             link.dataset.lightbox = lightboxGroupName;
             link.dataset.title = `${baseTitle} foto ${index + 1}`;
+            
+            // Prevent default link behavior
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Let lightbox handle the click
+            });
 
             const img = document.createElement('img');
             img.src = path;
@@ -74,20 +80,26 @@ document.addEventListener('DOMContentLoaded', () => {
             galleryGrid.appendChild(item);
         });
 
-        // Configure Lightbox options
-        if (typeof lightbox !== 'undefined') {
-            lightbox.option({
-                'resizeDuration': 300,
-                'fadeDuration': 300,
-                'imageFadeDuration': 300,
-                'wrapAround': true, // This enables circular navigation
-                'albumLabel': `${baseTitle} - Afbeelding %1 van %2`,
-                'positionFromTop': 50,
-                'alwaysShowNavOnTouchDevices': true // Better mobile experience
-            });
-        } else {
-            console.warn("Lightbox script not loaded or initialized.");
-        }
+        // Initialize Lightbox after all images are added
+        setTimeout(() => {
+            if (typeof lightbox !== 'undefined') {
+                lightbox.option({
+                    'resizeDuration': 300,
+                    'fadeDuration': 300,
+                    'imageFadeDuration': 300,
+                    'wrapAround': true, // This enables circular navigation
+                    'albumLabel': `${baseTitle} - Afbeelding %1 van %2`,
+                    'positionFromTop': 50,
+                    'alwaysShowNavOnTouchDevices': true, // Better mobile experience
+                    'disableScrolling': true // Prevent page scrolling when lightbox is open
+                });
+                
+                // Force re-initialization of lightbox
+                lightbox.init();
+            } else {
+                console.warn("Lightbox script not loaded or initialized.");
+            }
+        }, 100); // Small delay to ensure DOM is ready
     }
 
     // --- Display Loading/Error Messages ---
