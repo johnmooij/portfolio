@@ -1,0 +1,185 @@
+/* Category Header */
+.category-header {
+    text-align: center;
+    padding: 4rem 2rem 3rem; /* Adjusted padding */
+    background-color: #e5e5e5; /* Platinum - same as main page contact */
+}
+
+.category-header h2 {
+    font-size: 2.8rem; /* Slightly larger title */
+    margin-bottom: 1rem;
+    color: #14213d; /* Oxford Blue - same as main page */
+    font-weight: 600;
+}
+
+.category-header p {
+    font-size: 1.2rem;
+    color: #555; /* Darker grey */
+    max-width: 700px;
+    margin: 0 auto; /* Center description */
+}
+
+/* Gallery Container & Grid on Category Pages */
+.gallery-container {
+    padding: 3rem 5%; /* Use percentage for better scaling */
+    background-color: #ffffff; /* White */
+    max-width: 1600px; /* Limit max width */
+    margin: 0 auto; /* Center container */
+}
+
+.gallery-grid {
+    display: grid;
+    /* Responsive columns: start with 1, move to 2, then 3, then 4 */
+    grid-template-columns: 1fr; /* Mobile default */
+    gap: 1.5rem; /* Consistent gap */
+}
+
+/* Media queries for gallery grid columns */
+@media (min-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem; /* Slightly larger gap on desktop */
+    }
+}
+@media (min-width: 1400px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on very wide screens */
+         gap: 2rem;
+    }
+}
+
+
+.gallery-item {
+    border-radius: 8px; /* Match portfolio item */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(20, 33, 61, 0.1); /* Oxford Blue subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff; /* White */
+    aspect-ratio: 4 / 3; /* Maintain aspect ratio */
+}
+
+.gallery-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the area */
+    display: block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0.9; /* Slight fade initially */
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); /* Slightly less lift than main page */
+    box-shadow: 0 8px 20px rgba(20, 33, 61, 0.15); /* Oxford Blue shadow */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Image zoom on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Loading / Error Messages */
+.gallery-message {
+    grid-column: 1 / -1; /* Span all columns */
+    text-align: center;
+    padding: 3rem 1rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.gallery-message.error {
+    color: #c53030; /* Red for errors */
+    background-color: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 5px;
+    padding: 1.5rem;
+}
+
+
+/* --- Lightbox2 Customization --- */
+
+/* Backdrop */
+.lightboxOverlay {
+    background-color: rgba(20, 33, 61, 0.92); /* Dark Blue overlay, slightly more opaque */
+}
+
+/* Container */
+.lightbox .lb-outerContainer {
+    background-color: #ffffff; /* White background for image area */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+}
+
+/* Image */
+.lightbox .lb-image {
+    border-radius: 4px; /* Slight rounding on image corners */
+    border: 1px solid #e5e5e5; /* Subtle border */
+}
+
+/* Data Container (caption, number, close) */
+.lightbox .lb-dataContainer {
+    background-color: #ffffff; /* White background */
+    border-bottom-left-radius: 8px; /* Match outer container */
+    border-bottom-right-radius: 8px;
+    padding: 10px 15px; /* Standard padding */
+}
+
+/* Caption */
+.lightbox .lb-data .lb-caption {
+    color: #14213d; /* Oxford Blue */
+    font-weight: 600; /* Bolder caption */
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Image Number */
+.lightbox .lb-data .lb-number {
+    color: #555; /* Dark grey */
+    font-size: 0.85rem;
+}
+
+/* Close Button */
+.lightbox .lb-data .lb-close {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2)); /* Add subtle shadow */
+}
+
+.lightbox .lb-data .lb-close:hover {
+    opacity: 1;
+    /* Could change color on hover if desired, but requires SVG/background-image modification */
+}
+
+/* Navigation Arrows */
+.lightbox .lb-nav a.lb-prev,
+.lightbox .lb-nav a.lb-next {
+    opacity: 0.4; /* More subtle default state */
+    transition: opacity 0.3s ease;
+}
+
+.lightbox .lb-nav a.lb-prev:hover,
+.lightbox .lb-nav a.lb-next:hover {
+    opacity: 0.9; /* Clearly visible on hover */
+}
+
+/* Loading Indicator */
+.lb-loader {
+    /* Optional: Style the loading indicator if needed */
+}
+
+.lb-cancel {
+     /* Default style looks ok, can customize if needed */
+    border: 2px solid #fca311; /* Orange (web) border for consistency */
+}

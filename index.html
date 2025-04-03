@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografie John Mooij - Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css"> <!-- General styles -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Optional: Favicon links -->
+    <!-- <link rel="icon" href="/favicon.ico" sizes="any"> -->
+    <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+
+</head>
+<body>
+    <a href="#main-content" class="visually-hidden focusable skip-link">Skip to main content</a>
+    <header>
+        <div class="logo">
+            <div class="shape"></div>
+            <!-- Links to top of the page -->
+            <h1><a href="#top" id="top">Fotografie John Mooij</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">Over mij</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="slideshow">
+                <!-- Use appropriate image paths relative to index.html -->
+                <div class="slideshow-item active" style="background-image: url('assets/images/portfolio/architectuur/Architectuur1.jpg');"></div>
+                <div class="slideshow-item" style="background-image: url('assets/images/portfolio/architectuur/Architectuur2.jpg');"></div>
+                <div class="slideshow-item" style="background-image: url('assets/images/portfolio/natuur/natuur-1.jpg');"></div>
+                <div class="slideshow-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h2>Welkom bij mijn fotoportfolio</h2>
+                <p>Een verzameling van mijn beste werk</p>
+            </div>
+            <!-- <div class="geometric-accent"></div> --> <!-- Keep or remove accent as desired -->
+        </section> <!-- End .hero -->
+
+        <section id="portfolio" class="portfolio-section">
+            <h2>Portfolio Categorieën</h2>
+            <div class="portfolio-grid">
+                <!-- Item 1: Natuur -->
+                <div class="portfolio-item">
+                    <a href="pages/natuur.html">
+                        <!-- Path relative to index.html -->
+                        <img src="assets/images/portfolio/natuur/natuur-1.jpg" alt="Natuur fotografie voorbeeld" loading="lazy">
+                        <div class="overlay">
+                            <span>Natuur</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Item 2: Portret -->
+                <div class="portfolio-item">
+                    <a href="pages/portret.html">
+                        <img src="assets/images/portfolio/portret/portret-1.jpg" alt="Portret fotografie voorbeeld" loading="lazy">
+                        <div class="overlay">
+                            <span>Portret</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Item 3: Kunst -->
+                <div class="portfolio-item">
+                    <a href="pages/kunst.html">
+                        <img src="assets/images/portfolio/kunst/kunst-1.jpg" alt="Kunst fotografie voorbeeld" loading="lazy">
+                        <div class="overlay">
+                            <span>Kunst</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Item 4: Architectuur -->
+                <div class="portfolio-item">
+                    <a href="pages/architectuur.html">
+                        <img src="assets/images/portfolio/architectuur/Architectuur1.jpg" alt="Architectuur fotografie voorbeeld" loading="lazy">
+                        <div class="overlay">
+                            <span>Architectuur</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Item 5: Straatfotografie -->
+                <div class="portfolio-item">
+                    <a href="pages/straatfotografie.html">
+                        <img src="assets/images/portfolio/straatfotografie/straat-1.jpg" alt="Straatfotografie voorbeeld" loading="lazy">
+                        <div class="overlay">
+                            <span>Straatfotografie</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Item 6: Overig -->
+                <div class="portfolio-item">
+                    <a href="pages/overig.html">
+                        <img src="assets/images/portfolio/overig/overig-1.jpg" alt="Overige fotografie voorbeeld" loading="lazy">
+                        <div class="overlay">
+                            <span>Overig</span>
+                        </div>
+                    </a>
+                </div>
+            </div> <!-- End .portfolio-grid -->
+        </section> <!-- End #portfolio -->
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2>Over mij</h2>
+                <p>Welkom! Ik ben John Mooij, een gepassioneerd fotograaf met oog voor detail en compositie. Fotografie is voor mij meer dan alleen een beeld vastleggen; het is het vangen van een sfeer, een emotie, of de schoonheid in het alledaagse of juist het spectaculaire.</p>
+                <p>Mijn werk omvat diverse genres, van de serene rust in de natuur tot de dynamische lijnen van architectuur en de unieke expressie in portretten. Blader door mijn portfolio en ontdek de wereld door mijn lens.</p>
+            </div>
+            <div class="profile-image">
+                 <!-- Use correct relative path from index.html -->
+                <img src="assets/images/profile/profiel.jpg" alt="Profielfoto John Mooij" loading="lazy">
+            </div>
+        </section> <!-- End #about -->
+
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <p>Heeft u een vraag, wilt u samenwerken, of bent u geïnteresseerd in een van mijn foto's? Neem gerust contact op via onderstaand formulier.</p>
+            <!-- Note: This form needs backend/service integration to actually send emails -->
+            <form action="#" method="POST" id="contact-form">
+                <div class="form-group">
+                    <label for="name" class="visually-hidden">Naam</label>
+                    <input type="text" id="name" name="name" placeholder="Uw Naam" required>
+                </div>
+                <div class="form-group">
+                     <label for="email" class="visually-hidden">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Uw E-mailadres" required>
+                </div>
+                <div class="form-group">
+                     <label for="message" class="visually-hidden">Bericht</label>
+                    <textarea id="message" name="message" placeholder="Uw Bericht" required></textarea>
+                </div>
+                <div class="form-center">
+                    <button type="submit">Versturen</button>
+                </div>
+            </form>
+        </section> <!-- End #contact -->
+    </main>
+
+    <footer>
+        <p>© 2024 Fotografie John Mooij - Alle rechten voorbehouden</p> <!-- Updated year -->
+    </footer>
+
+    <!-- Main page specific JavaScript -->
+    <script src="js/script.js"></script>
+
+    <!-- Add a visually hidden class for labels & skip links -->
+    <style>
+        .visually-hidden {
+            position: absolute !important;
+            height: 1px; width: 1px;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap; /* Keep screen readers happy */
+        }
+         /* Show skip link on focus */
+        .skip-link:focus {
+            position: static !important;
+            height: auto; width: auto;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+            display: inline-block; /* Or block, depending on desired styling */
+            padding: 0.5em;
+            background-color: #eee;
+            color: #333;
+            text-decoration: none;
+            border: 1px solid #ccc;
+            margin: 0.5em;
+        }
+    </style>
+</body>
+</html>

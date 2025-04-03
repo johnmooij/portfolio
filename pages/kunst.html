@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunst Fotografie - Fotoportfolio</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/gallery.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="shape"></div>
+            <h1><a href="../index.html">Fotoportfolio</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html#portfolio">Portfolio</a></li>
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="category-header">
+        <h2>Kunst Fotografie</h2>
+        <p>Een verzameling van mijn kunstfotografie</p>
+    </section>
+
+    <section class="category-gallery">
+        <div class="gallery-grid">
+            <div class="gallery-item" data-index="0">
+                <img src="../assets/images/portfolio/kunst/kunst-1.jpg" alt="Kunst foto 1">
+            </div>
+            <div class="gallery-item" data-index="1">
+                <img src="../assets/images/portfolio/kunst/kunst-2.jpg" alt="Kunst foto 2">
+            </div>
+            <div class="gallery-item" data-index="2">
+                <img src="../assets/images/portfolio/kunst/kunst-3.jpg" alt="Kunst foto 3">
+            </div>
+            <!-- Add more photos as needed -->
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="close">&times;</span>
+            <img id="lightbox-img" src="" alt="Lightbox Image">
+            <div class="navigation">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Fotoportfolio - Alle rechten voorbehouden</p>
+    </footer>
+
+    <script src="../gallery.js"></script>
+</body>
+</html>

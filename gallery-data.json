@@ -1,0 +1,34 @@
+{
+  "natuur": [
+    "../assets/images/portfolio/natuur/natuur-1.jpg",
+    "../assets/images/portfolio/natuur/natuur-2.jpg",
+    "../assets/images/portfolio/natuur/natuur-3.jpg"
+  ],
+  "portret": [
+    "../assets/images/portfolio/portret/portret-1.jpg",
+    "../assets/images/portfolio/portret/portret-2.jpg",
+    "../assets/images/portfolio/portret/portret-3.jpg"
+  ],
+  "kunst": [
+    "../assets/images/portfolio/kunst/kunst-1.jpg",
+    "../assets/images/portfolio/kunst/kunst-2.jpg",
+    "../assets/images/portfolio/kunst/kunst-3.jpg"
+  ],
+  "architectuur": [
+    "../assets/images/portfolio/architectuur/Architectuur1.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur2.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur3.jpg"
+    // Add new architecture photos here like:
+    // "../assets/images/portfolio/architectuur/new_building.jpg"
+  ],
+  "straatfotografie": [
+    "../assets/images/portfolio/straatfotografie/straat-1.jpg",
+    "../assets/images/portfolio/straatfotografie/straat-2.jpg",
+    "../assets/images/portfolio/straatfotografie/straat-3.jpg"
+  ],
+  "overig": [
+    "../assets/images/portfolio/overig/overig-1.jpg",
+    "../assets/images/portfolio/overig/overig-2.jpg",
+    "../assets/images/portfolio/overig/overig-3.jpg"
+  ]
+}

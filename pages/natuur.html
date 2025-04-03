@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natuur Fotografie - Fotoportfolio</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/gallery.css">
+    <!-- Direct CDN links for Lightbox2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="shape"></div>
+            <h1><a href="../index.html">Fotoportfolio</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html#portfolio">Portfolio</a></li>
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="category-header">
+        <h2>Natuur Fotografie</h2>
+        <p>Een verzameling van mijn natuurfotografie</p>
+    </section>
+
+    <section class="gallery-container">
+        <div class="gallery-grid">
+            <!-- Hardcoded gallery items for testing -->
+            <div class="gallery-item">
+                <a href="../assets/images/portfolio/natuur/Architectuur1.jpg" data-lightbox="natuur" data-title="Natuur foto 1">
+                    <img src="../assets/images/portfolio/natuur/Architectuur1.jpg" alt="Natuur foto 1">
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="../assets/images/portfolio/natuur/Architectuur2.jpg" data-lightbox="natuur" data-title="Natuur foto 2">
+                    <img src="../assets/images/portfolio/natuur/Architectuur2.jpg" alt="Natuur foto 2">
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="../assets/images/portfolio/natuur/Architectuur3.jpg" data-lightbox="natuur" data-title="Natuur foto 3">
+                    <img src="../assets/images/portfolio/natuur/Architectuur3.jpg" alt="Natuur foto 3">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Fotoportfolio - Alle rechten voorbehouden</p>
+    </footer>
+
+    <!-- Direct CDN links for jQuery and Lightbox2 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+    <script>
+        // Initialize Lightbox with options
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': "Afbeelding %1 van %2"
+        });
+    </script>
+</body>
+</html>

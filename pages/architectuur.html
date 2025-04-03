@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- **** 1. CHANGE TITLE FOR EACH CATEGORY **** -->
+    <!-- Example: <title>Architectuur Fotografie - Fotografie John Mooij</title> -->
+    <title>Architectuur Fotografie - Fotografie John Mooij</title>
+
+    <!-- CSS -->
+    <!-- Paths are relative to the 'pages' directory -->
+    <link rel="stylesheet" href="../css/styles.css">   <!-- General styles -->
+    <link rel="stylesheet" href="../css/gallery.css">  <!-- Gallery specific styles -->
+
+    <!-- Lightbox2 CSS from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDPAgaCn/lJGsvjtVFodCVLtWKDQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Optional: Favicon links (use ../ relative path) -->
+    <!-- <link rel="icon" href="../favicon.ico" sizes="any"> -->
+    <!-- <link rel="icon" href="../favicon.svg" type="image/svg+xml"> -->
+
+</head>
+<body>
+    <a href="#main-content" class="visually-hidden focusable skip-link">Skip to main content</a>
+    <header>
+        <div class="logo">
+            <div class="shape"></div>
+             <!-- Link back to the main index page -->
+            <h1><a href="../index.html">Fotografie John Mooij</a></h1>
+        </div>
+        <nav>
+            <ul>
+                <!-- Links relative to the main index page -->
+                <li><a href="../index.html#portfolio">Portfolio</a></li>
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="category-header">
+            <!-- **** 2. CHANGE H2 TEXT FOR EACH CATEGORY - JS relies on this! **** -->
+            <!-- Examples: "Natuur Fotografie", "Portret Fotografie", etc. -->
+            <h2>Architectuur Fotografie</h2>
+            <!-- Optional: Update the description paragraph for each category -->
+            <p>Een selectie van mijn fotografie in de categorie Architectuur.</p>
+        </section>
+
+        <section class="gallery-container">
+            <!-- Gallery grid will be populated by gallery.js -->
+            <div class="gallery-grid">
+                <!-- Initial loading/placeholder message (will be replaced by JS) -->
+                <div class="gallery-message">Galerij laden...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Fotografie John Mooij - Alle rechten voorbehouden</p> <!-- Updated year -->
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- jQuery (Required by Lightbox2) from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Lightbox2 JS from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1//XIJHk2PT5SCcU/nZMgvyp9HnqCCLRkhk2/Pkk8JlLOkaAlWI4pmFKjQlOwfoUroa9cOBHLaqwRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Custom Gallery Script (path relative to 'pages' directory) -->
+    <script src="../js/gallery.js"></script>
+
+    <!-- Add a visually hidden class for labels & skip links -->
+    <style>
+        .visually-hidden {
+            position: absolute !important;
+            height: 1px; width: 1px;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap; /* Keep screen readers happy */
+        }
+         /* Show skip link on focus */
+        .skip-link:focus {
+            position: static !important;
+            height: auto; width: auto;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+            display: inline-block; /* Or block, depending on desired styling */
+            padding: 0.5em;
+            background-color: #eee;
+            color: #333;
+            text-decoration: none;
+            border: 1px solid #ccc;
+            margin: 0.5em;
+        }
+    </style>
+</body>
+</html>
