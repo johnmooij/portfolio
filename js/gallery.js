@@ -62,8 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
             link.href = path;
             // This is the key part - all images must have the same data-lightbox attribute value
             link.dataset.lightbox = lightboxGroupName;
-            link.dataset.title = `${baseTitle} foto ${index + 1}`;
-            
+            // Remove the title to prevent captions from showing
+            // link.dataset.title = `${baseTitle} foto ${index + 1}`;
+                
             const img = document.createElement('img');
             img.src = path;
             img.alt = `${baseTitle} foto ${index + 1}`;
@@ -82,10 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     'fadeDuration': 300,
                     'imageFadeDuration': 300,
                     'wrapAround': true, // This enables circular navigation
-                    'albumLabel': `${baseTitle} - Afbeelding %1 van %2`,
+                    'albumLabel': '', // Empty string to hide the album label
                     'positionFromTop': 50,
-                    'alwaysShowNavOnTouchDevices': true, // Better mobile experience
-                    'disableScrolling': true // Prevent page scrolling when lightbox is open
+                    'alwaysShowNavOnTouchDevices': true,
+                    'disableScrolling': true,
+                    'fitImagesInViewport': true, // Ensure images fit in viewport
+                    'maxWidth': window.innerWidth * 0.95, // 95% of window width
+                    'maxHeight': window.innerHeight * 0.9, // 90% of window height
+                    'showImageNumberLabel': false // Hide image number
                 });
             } else {
                 console.warn("Lightbox script not loaded or initialized.");
@@ -97,7 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (typeof lightbox !== 'undefined') {
                         lightbox.option({
                             'wrapAround': true,
-                            'albumLabel': `${baseTitle} - Afbeelding %1 van %2`
+                            'albumLabel': '',
+                            'showImageNumberLabel': false,
+                            'fitImagesInViewport': true,
+                            'maxWidth': window.innerWidth * 0.95,
+                            'maxHeight': window.innerHeight * 0.9
                         });
                     }
                 };

@@ -190,13 +190,29 @@
     z-index: 9999;
 }
 
+/* Add these styles to ensure Lightbox displays properly */
 .lb-outerContainer, .lb-dataContainer {
-    max-width: 90vw;
+    max-width: 95vw !important;
+    width: auto !important;
 }
 
 .lb-image {
-    max-width: 85vw;
-    max-height: 85vh;
+    max-width: 95vw !important;
+    height: auto !important;
+}
+
+/* Hide the caption container completely */
+.lb-dataContainer {
+    display: none !important;
+}
+
+/* Make sure navigation arrows are visible */
+.lb-nav a.lb-prev, .lb-nav a.lb-next {
+    opacity: 0.7 !important;
+}
+
+.lb-nav a.lb-prev:hover, .lb-nav a.lb-next:hover {
+    opacity: 1 !important;
 }
 
 /* Ensure gallery items have proper cursor */
