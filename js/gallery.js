@@ -64,12 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
             link.dataset.lightbox = lightboxGroupName;
             link.dataset.title = `${baseTitle} foto ${index + 1}`;
             
-            // Prevent default link behavior
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Let lightbox handle the click
-            });
-
             const img = document.createElement('img');
             img.src = path;
             img.alt = `${baseTitle} foto ${index + 1}`;
@@ -93,11 +87,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     'alwaysShowNavOnTouchDevices': true, // Better mobile experience
                     'disableScrolling': true // Prevent page scrolling when lightbox is open
                 });
-                
-                // Force re-initialization of lightbox
-                lightbox.init();
             } else {
                 console.warn("Lightbox script not loaded or initialized.");
+                // Try to load Lightbox dynamically if it's not available
+                const script = document.createElement('script');
+                script.src = "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js";
+                script.onload = function() {
+                    console.log("Lightbox loaded dynamically");
+                    if (typeof lightbox !== 'undefined') {
+                        lightbox.option({
+                            'wrapAround': true,
+                            'albumLabel': `${baseTitle} - Afbeelding %1 van %2`
+                        });
+                    }
+                };
+                document.body.appendChild(script);
             }
         }, 100); // Small delay to ensure DOM is ready
     }
