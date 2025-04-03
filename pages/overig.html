@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overige Fotografie - Fotoportfolio</title>
+
+    <title>Overig Fotografie - Fotografie John Mooij</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/gallery.css">
+
+    <!-- Lightbox2 CSS from CDN - without integrity attribute -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Optional: Favicon links -->
+    <!-- <link rel="icon" href="../favicon.ico" sizes="any"> -->
 </head>
 <body>
+    <!-- Skip link removed -->
     <header>
         <div class="logo">
             <div class="shape"></div>
-            <h1><a href="../index.html">Fotoportfolio</a></h1>
+             <!-- Link back to the main index page -->
+            <h1><a href="../index.html">Fotografie John Mooij</a></h1>
         </div>
         <nav>
             <ul>
+                <!-- Links relative to the main index page -->
                 <li><a href="../index.html#portfolio">Portfolio</a></li>
                 <li><a href="../index.html#about">Over mij</a></li>
                 <li><a href="../index.html#contact">Contact</a></li>
@@ -25,41 +39,46 @@
         </nav>
     </header>
 
-    <section class="category-header">
-        <h2>Overige Fotografie</h2>
-        <p>Een verzameling van mijn overige fotografie</p>
-    </section>
+    <main id="main-content">
+        <section class="category-header">
+            <!-- **** 2. CHANGE H2 TEXT FOR EACH CATEGORY - JS relies on this! **** -->
+            <h2>Overig Fotografie</h2>
+            <!-- Optional: Update the description paragraph for each category -->
+            <p>Een selectie van mijn fotografie in de categorie Overig.</p>
+        </section>
 
-    <section class="category-gallery">
-        <div class="gallery-grid">
-            <div class="gallery-item" data-index="0">
-                <img src="../assets/images/portfolio/overig/overig-1.jpg" alt="Overige foto 1">
+        <section class="gallery-container">
+            <!-- Gallery grid will be populated by gallery.js -->
+            <div class="gallery-grid">
+                <!-- Initial loading/placeholder message (will be replaced by JS) -->
+                <div class="gallery-message">Galerij laden...</div>
             </div>
-            <div class="gallery-item" data-index="1">
-                <img src="../assets/images/portfolio/overig/overig-2.jpg" alt="Overige foto 2">
+            
+            <!-- Fallback content in case JS fails to load -->
+            <noscript>
+                <p>JavaScript is vereist om de galerij te bekijken.</p>
+            </noscript>
+            
+            <!-- Debug information - remove after fixing -->
+            <div id="gallery-debug" style="margin-top: 20px; padding: 10px; background: #f8f8f8; border: 1px solid #ddd; display: none;">
+                <h3>Debug Info:</h3>
+                <div id="debug-output"></div>
             </div>
-            <div class="gallery-item" data-index="2">
-                <img src="../assets/images/portfolio/overig/overig-3.jpg" alt="Overige foto 3">
-            </div>
-            <!-- Add more photos as needed -->
-        </div>
-    </section>
-
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <span class="close">&times;</span>
-            <img id="lightbox-img" src="" alt="Lightbox Image">
-            <div class="navigation">
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2023 Fotoportfolio - Alle rechten voorbehouden</p>
+        <p>© 2024 Fotografie John Mooij - Alle rechten voorbehouden</p>
     </footer>
 
-    <script src="../gallery.js"></script>
+    <!-- JavaScript -->
+    <!-- jQuery (Required by Lightbox2) from CDN - without integrity attribute -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" referrerpolicy="no-referrer"></script>
+    
+    <!-- Lightbox2 JS from CDN - without integrity attribute -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" referrerpolicy="no-referrer"></script>
+    
+    <!-- Custom Gallery Script -->
+    <script src="../js/gallery.js"></script>
 </body>
 </html>

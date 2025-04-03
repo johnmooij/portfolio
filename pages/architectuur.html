@@ -4,35 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- **** 1. CHANGE TITLE FOR EACH CATEGORY **** -->
-    <!-- Example: <title>Architectuur Fotografie - Fotografie John Mooij</title> -->
     <title>Architectuur Fotografie - Fotografie John Mooij</title>
 
     <!-- CSS -->
-    <!-- Paths are relative to the 'pages' directory -->
-    <link rel="stylesheet" href="../css/styles.css">   <!-- General styles -->
-    <link rel="stylesheet" href="../css/gallery.css">  <!-- Gallery specific styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/gallery.css">
 
-    <!-- Lightbox2 CSS from CDN -->
-    <!-- Replace these lines in your HTML file -->
-    <!-- Lightbox2 CSS from CDN - remove integrity attribute -->
+    <!-- Lightbox2 CSS from CDN - without integrity attribute -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" referrerpolicy="no-referrer" />
-    
-    <!-- Later in the file, replace the Lightbox JS script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" referrerpolicy="no-referrer"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <!-- Optional: Favicon links (use ../ relative path) -->
+    <!-- Optional: Favicon links -->
     <!-- <link rel="icon" href="../favicon.ico" sizes="any"> -->
-    <!-- <link rel="icon" href="../favicon.svg" type="image/svg+xml"> -->
-
 </head>
 <body>
-    <a href="#main-content" class="visually-hidden focusable skip-link">Skip to main content</a>
     <header>
         <div class="logo">
             <div class="shape"></div>
@@ -79,58 +68,17 @@
     </main>
 
     <footer>
-        <p>© 2024 Fotografie John Mooij - Alle rechten voorbehouden</p> <!-- Updated year -->
+        <p>© 2024 Fotografie John Mooij - Alle rechten voorbehouden</p>
     </footer>
 
     <!-- JavaScript -->
-    <!-- jQuery (Required by Lightbox2) from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Lightbox2 JS from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1//XIJHk2PT5SCcU/nZMgvyp9HnqCCLRkhk2/Pkk8JlLOkaAlWI4pmFKjQlOwfoUroa9cOBHLaqwRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Custom Gallery Script (path relative to 'pages' directory) -->
+    <!-- jQuery (Required by Lightbox2) from CDN - without integrity attribute -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" referrerpolicy="no-referrer"></script>
+    
+    <!-- Lightbox2 JS from CDN - without integrity attribute -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" referrerpolicy="no-referrer"></script>
+    
+    <!-- Custom Gallery Script -->
     <script src="../js/gallery.js"></script>
-
-    <!-- Add this before the closing </body> tag -->
-    <!-- Remove or comment out this entire debug script section -->
-    <!--
-    <script>
-        // Debug script to check if gallery.js is loading properly
-        document.addEventListener('DOMContentLoaded', function() {
-            // Show debug panel
-            document.getElementById('gallery-debug').style.display = 'block';
-            
-            const debugOutput = document.getElementById('debug-output');
-            
-            // Check if category is detected correctly
-            const categoryHeading = document.querySelector('.category-header h2');
-            const categoryName = categoryHeading ? categoryHeading.textContent.trim() : 'Not found';
-            debugOutput.innerHTML += `<p>Detected category: "${categoryName}"</p>`;
-            
-            // Check if images directory exists
-            const imgPath = `../images/portfolio/${categoryName.toLowerCase()}`;
-            debugOutput.innerHTML += `<p>Expected images path: "${imgPath}"</p>`;
-            
-            // Add a manual gallery item as fallback
-            const galleryGrid = document.querySelector('.gallery-grid');
-            if (galleryGrid) {
-                // Clear loading message
-                galleryGrid.innerHTML = '';
-                
-                // Add a test image (update path to an actual image that exists)
-                galleryGrid.innerHTML += `
-                    <div class="gallery-item">
-                        <a href="../images/portfolio/architectuur/sample.jpg" data-lightbox="architectuur" data-title="Test Image">
-                            <img src="../images/portfolio/architectuur/sample.jpg" alt="Test architectuur image">
-                        </a>
-                    </div>
-                `;
-                
-                debugOutput.innerHTML += `<p>Added fallback test image</p>`;
-            } else {
-                debugOutput.innerHTML += `<p>ERROR: Gallery grid element not found</p>`;
-            }
-        });
-    </script>
-    -->
 </body>
 </html>

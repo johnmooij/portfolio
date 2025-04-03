@@ -1,51 +1,150 @@
 document.addEventListener('DOMContentLoaded', () => {
     const galleryGrid = document.querySelector('.gallery-grid');
     const categoryTitleElement = document.querySelector('.category-header h2');
-
-    if (!galleryGrid || !categoryTitleElement) {
+    
+    // Check if we're on the index page
+    const isIndexPage = window.location.pathname.endsWith('index.html') || 
+                        window.location.pathname.endsWith('/') ||
+                        window.location.pathname.split('/').pop() === '';
+    
+    if (isIndexPage) {
+        // If on index page, update preview images with random selections
+        updateRandomCategoryPreviews();
+    } else if (!galleryGrid || !categoryTitleElement) {
+        // If on category page but elements not found
         console.error("Essential elements (gallery grid or category header) not found.");
         return;
+    } else {
+        // Normal gallery page processing
+        loadGallery();
     }
 
-    // --- Determine Category ---
-    const fullTitle = categoryTitleElement.textContent.trim();
-    const categoryKey = fullTitle.split(' ')[0].toLowerCase();
+    // Function to update category preview images on index page with random selections
+    function updateRandomCategoryPreviews() {
+        fetch('gallery-data.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // For each category, update the preview image with a random selection
+                Object.keys(data).forEach(category => {
+                    if (data[category] && data[category].length > 0) {
+                        // Get a random image from the category
+                        const randomIndex = Math.floor(Math.random() * data[category].length);
+                        const randomImage = data[category][randomIndex];
+                        
+                        // Find the portfolio item for this category
+                        const portfolioItem = document.querySelector(`.portfolio-item a[href="pages/${category}.html"] img`);
+                        if (portfolioItem) {
+                            portfolioItem.src = randomImage;
+                            console.log(`Updated preview for ${category} with random image: ${randomImage}`);
+                        }
+                    }
+                });
+                
+                // Also update the slideshow with random images
+                updateSlideshowImages(data);
+            })
+            .catch(error => {
+                console.error('Error updating category previews:', error);
+            });
+    }
     
-    console.log("Detected category key:", categoryKey);
-
-    if (!categoryKey) {
-        displayMessage("Kon categorie niet bepalen.", true);
-        return;
+    // Function to update slideshow images with random selections
+    function updateSlideshowImages(data) {
+        const slideshowItems = document.querySelectorAll('.slideshow-item');
+        if (slideshowItems.length === 0) return;
+        
+        // Get all available images from all categories
+        const allImages = [];
+        Object.keys(data).forEach(category => {
+            if (data[category] && data[category].length > 0) {
+                allImages.push(...data[category]);
+            }
+        });
+        
+        if (allImages.length === 0) return;
+        
+        // Update each slideshow item with a random image
+        slideshowItems.forEach(item => {
+            const randomIndex = Math.floor(Math.random() * allImages.length);
+            const randomImage = allImages[randomIndex];
+            item.style.backgroundImage = `url('${randomImage}')`;
+        });
+        
+        console.log("Updated slideshow with random images");
     }
 
-    // --- Fetch Gallery Data ---
-    fetch('../gallery-data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const imagePaths = data[categoryKey];
+    // Function to load the gallery for a specific category page
+    function loadGallery() {
+        // --- Determine Category ---
+        const fullTitle = categoryTitleElement.textContent.trim();
+        const categoryKey = fullTitle.split(' ')[0].toLowerCase();
+        
+        console.log("Detected category key:", categoryKey);
 
-            if (!imagePaths) {
-                displayMessage(`Geen data gevonden voor categorie: ${categoryKey}`, true);
-                console.warn(`Category key "${categoryKey}" not found in gallery-data.json`);
-                return;
-            }
+        if (!categoryKey) {
+            displayMessage("Kon categorie niet bepalen.", true);
+            return;
+        }
 
-            if (imagePaths.length === 0) {
-                displayMessage("Er zijn nog geen afbeeldingen in deze categorie.");
-                return;
-            }
+        // --- Fetch Gallery Data ---
+        fetch('../gallery-data.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                let imagePaths = data[categoryKey];
 
-            populateGallery(imagePaths, categoryKey, fullTitle.split(' Fotografie')[0]);
-        })
-        .catch(error => {
-            console.error('Error loading gallery data:', error);
-            displayMessage("Fout bij het laden van de galerij afbeeldingen.", true);
-        });
+                if (!imagePaths) {
+                    displayMessage(`Geen data gevonden voor categorie: ${categoryKey}`, true);
+                    console.warn(`Category key "${categoryKey}" not found in gallery-data.json`);
+                    return;
+                }
+
+                if (imagePaths.length === 0) {
+                    displayMessage("Er zijn nog geen afbeeldingen in deze categorie.");
+                    return;
+                }
+
+                // Custom sorting for architectuur category
+                if (categoryKey === 'architectuur') {
+                    // Find the indices of the specific files
+                    const lastIndex = imagePaths.findIndex(path => path.includes('Architectuur01.jpg'));
+                    const firstIndex = imagePaths.findIndex(path => path.includes('Architectuur23.jpg'));
+                    
+                    if (lastIndex !== -1 && firstIndex !== -1) {
+                        // Create a new array with the desired order
+                        const reorderedPaths = [...imagePaths];
+                        
+                        // Remove the items we want to reposition
+                        const lastItem = reorderedPaths.splice(lastIndex, 1)[0];
+                        // After removing the first item, we need to adjust the index for the second removal
+                        const firstItemIndex = reorderedPaths.findIndex(path => path.includes('Architectuur23.jpg'));
+                        const firstItem = reorderedPaths.splice(firstItemIndex, 1)[0];
+                        
+                        // Add them at the desired positions
+                        reorderedPaths.unshift(firstItem); // Add at the beginning
+                        reorderedPaths.push(lastItem);     // Add at the end
+                        
+                        imagePaths = reorderedPaths;
+                        console.log("Reordered architectuur gallery with custom sorting");
+                    }
+                }
+
+                populateGallery(imagePaths, categoryKey, fullTitle.split(' Fotografie')[0]);
+            })
+            .catch(error => {
+                console.error('Error loading gallery data:', error);
+                displayMessage("Fout bij het laden van de galerij afbeeldingen.", true);
+            });
+    }
 
     // --- Populate Gallery Grid ---
     function populateGallery(paths, key, baseTitle) {

@@ -191,22 +191,23 @@
 }
 
 /* Update these styles for better image sizing in lightbox */
-.lb-outerContainer, .lb-dataContainer {
-    max-width: 95vw !important;
-    width: auto !important;
+.lb-outerContainer {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out !important;
+}
+
+.lb-container {
+    padding: 0 !important;
 }
 
 .lb-image {
-    max-width: 95vw !important;
-    max-height: 90vh !important;
+    /* Allow image to display at natural size, but constrain if too large */
+    max-width: 90vw !important;
+    max-height: 85vh !important;
     width: auto !important;
     height: auto !important;
-    object-fit: contain !important;
-}
-
-/* Ensure the container sizes to the image */
-.lb-outerContainer {
-    transition: width 0.3s ease-in-out, height 0.3s ease-in-out !important;
+    border: none !important;
 }
 
 /* Hide the caption container completely */
@@ -214,12 +215,35 @@
     display: none !important;
 }
 
-/* Make sure navigation arrows are visible */
-.lb-nav a.lb-prev, .lb-nav a.lb-next {
+/* Make navigation arrows more visible and center them vertically */
+.lb-nav a.lb-prev,
+.lb-nav a.lb-next {
     opacity: 0.7 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background-size: 20px !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-.lb-nav a.lb-prev:hover, .lb-nav a.lb-next:hover {
+.lb-nav a.lb-prev {
+    left: 10px !important;
+}
+
+.lb-nav a.lb-next {
+    right: 10px !important;
+}
+
+.lb-nav a.lb-prev:hover,
+.lb-nav a.lb-next:hover {
     opacity: 1 !important;
 }
 
