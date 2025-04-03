@@ -62,8 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.href = path;
             // This is the key part - all images must have the same data-lightbox attribute value
             link.dataset.lightbox = lightboxGroupName;
-            // Remove the title to prevent captions from showing
-            // link.dataset.title = `${baseTitle} foto ${index + 1}`;
+            // No title to avoid captions
                 
             const img = document.createElement('img');
             img.src = path;
@@ -77,42 +76,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize Lightbox after all images are added
         setTimeout(() => {
-            if (typeof lightbox !== 'undefined') {
-                lightbox.option({
-                    'resizeDuration': 300,
-                    'fadeDuration': 300,
-                    'imageFadeDuration': 300,
-                    'wrapAround': true, // This enables circular navigation
-                    'albumLabel': '', // Empty string to hide the album label
-                    'positionFromTop': 50,
-                    'alwaysShowNavOnTouchDevices': true,
-                    'disableScrolling': true,
-                    'fitImagesInViewport': true, // Ensure images fit in viewport
-                    'maxWidth': window.innerWidth * 0.95, // 95% of window width
-                    'maxHeight': window.innerHeight * 0.9, // 90% of window height
-                    'showImageNumberLabel': false // Hide image number
-                });
+            if (typeof lightbox !== 'undefined' && typeof jQuery !== 'undefined') {
+                try {
+                    // Configure Lightbox
+                    lightbox.option({
+                        'resizeDuration': 300,
+                        'fadeDuration': 300,
+                        'imageFadeDuration': 300,
+                        'wrapAround': true,
+                        'albumLabel': '',
+                        'positionFromTop': 50,
+                        'alwaysShowNavOnTouchDevices': true,
+                        'disableScrolling': true,
+                        'showImageNumberLabel': false
+                    });
+                    console.log("Lightbox configured successfully");
+                } catch (e) {
+                    console.error("Error configuring lightbox:", e);
+                }
             } else {
-                console.warn("Lightbox script not loaded or initialized.");
-                // Try to load Lightbox dynamically if it's not available
-                const script = document.createElement('script');
-                script.src = "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js";
-                script.onload = function() {
-                    console.log("Lightbox loaded dynamically");
-                    if (typeof lightbox !== 'undefined') {
-                        lightbox.option({
-                            'wrapAround': true,
-                            'albumLabel': '',
-                            'showImageNumberLabel': false,
-                            'fitImagesInViewport': true,
-                            'maxWidth': window.innerWidth * 0.95,
-                            'maxHeight': window.innerHeight * 0.9
-                        });
-                    }
-                };
-                document.body.appendChild(script);
+                console.warn("Lightbox or jQuery not loaded, attempting to load dynamically");
+                
+                // First load jQuery if needed
+                if (typeof jQuery === 'undefined') {
+                    const jQueryScript = document.createElement('script');
+                    jQueryScript.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js";
+                    jQueryScript.onload = function() {
+                        console.log("jQuery loaded dynamically");
+                        
+                        // Now load Lightbox
+                        const lightboxScript = document.createElement('script');
+                        lightboxScript.src = "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js";
+                        lightboxScript.onload = function() {
+                            console.log("Lightbox loaded dynamically");
+                            // Wait a moment for initialization
+                            setTimeout(() => {
+                                if (typeof lightbox !== 'undefined') {
+                                    lightbox.option({
+                                        'wrapAround': true,
+                                        'albumLabel': '',
+                                        'showImageNumberLabel': false
+                                    });
+                                }
+                            }, 500);
+                        };
+                        document.body.appendChild(lightboxScript);
+                    };
+                    document.body.appendChild(jQueryScript);
+                } else {
+                    // Just load Lightbox if jQuery is already available
+                    const lightboxScript = document.createElement('script');
+                    lightboxScript.src = "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js";
+                    lightboxScript.onload = function() {
+                        console.log("Lightbox loaded dynamically");
+                        setTimeout(() => {
+                            if (typeof lightbox !== 'undefined') {
+                                lightbox.option({
+                                    'wrapAround': true,
+                                    'albumLabel': '',
+                                    'showImageNumberLabel': false
+                                });
+                            }
+                        }, 500);
+                    };
+                    document.body.appendChild(lightboxScript);
+                }
             }
-        }, 100); // Small delay to ensure DOM is ready
+        }, 100);
     }
 
     // --- Display Loading/Error Messages ---
