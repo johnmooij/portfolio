@@ -18,8 +18,6 @@
     "../assets/images/portfolio/architectuur/Architectuur1.jpg",
     "../assets/images/portfolio/architectuur/Architectuur2.jpg",
     "../assets/images/portfolio/architectuur/Architectuur3.jpg"
-    // Add new architecture photos here like:
-    // "../assets/images/portfolio/architectuur/new_building.jpg"
   ],
   "straatfotografie": [
     "../assets/images/portfolio/straatfotografie/straat-1.jpg",
