@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Find the portfolio item for this category
                         const portfolioItem = document.querySelector(`.portfolio-item a[href="pages/${category}.html"] img`);
                         if (portfolioItem) {
+                            // Fix the path to use the correct format
+                            // The data from gallery-data.json has paths like "assets/images/portfolio/natuur/natuur01.jpg"
                             portfolioItem.src = randomImage;
                             console.log(`Updated preview for ${category} with random image: ${randomImage}`);
                         }
@@ -50,7 +52,31 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error('Error updating category previews:', error);
+                // If there's an error, make sure we're using the correct paths in the HTML
+                fixStaticImagePaths();
             });
+    }
+    
+    // Function to fix static image paths if JSON loading fails
+    function fixStaticImagePaths() {
+        // Map of correct image paths
+        const correctPaths = {
+            'natuur': 'assets/images/portfolio/natuur/natuur01.jpg',
+            'portret': 'assets/images/portfolio/portret/portret01.jpg',
+            'kunst': 'assets/images/portfolio/kunst/kunst01.jpg',
+            'architectuur': 'assets/images/portfolio/architectuur/Architectuur01.jpg',
+            'straatfotografie': 'assets/images/portfolio/straatfotografie/straat01.jpg',
+            'overig': 'assets/images/portfolio/overig/overig01.jpg'
+        };
+        
+        // Update each category image with the correct path
+        Object.keys(correctPaths).forEach(category => {
+            const portfolioItem = document.querySelector(`.portfolio-item a[href="pages/${category}.html"] img`);
+            if (portfolioItem) {
+                portfolioItem.src = correctPaths[category];
+                console.log(`Fixed static path for ${category}: ${correctPaths[category]}`);
+            }
+        });
     }
     
     // Function to update slideshow images with random selections
