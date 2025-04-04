@@ -39,8 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Find the portfolio item for this category
                         const portfolioItem = document.querySelector(`.portfolio-item a[href="pages/${category}.html"] img`);
                         if (portfolioItem) {
-                            // Fix the path to use the correct format
-                            // The data from gallery-data.json has paths like "assets/images/portfolio/natuur/natuur01.jpg"
                             portfolioItem.src = randomImage;
                             console.log(`Updated preview for ${category} with random image: ${randomImage}`);
                         }
@@ -52,31 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error('Error updating category previews:', error);
-                // If there's an error, make sure we're using the correct paths in the HTML
-                fixStaticImagePaths();
+                // No need to fix paths - index.html already has correct paths as fallbacks
             });
-    }
-    
-    // Function to fix static image paths if JSON loading fails
-    function fixStaticImagePaths() {
-        // Map of correct image paths
-        const correctPaths = {
-            'natuur': 'assets/images/portfolio/natuur/natuur01.jpg',
-            'portret': 'assets/images/portfolio/portret/portret01.jpg',
-            'kunst': 'assets/images/portfolio/kunst/kunst01.jpg',
-            'architectuur': 'assets/images/portfolio/architectuur/Architectuur01.jpg',
-            'straatfotografie': 'assets/images/portfolio/straatfotografie/straat01.jpg',
-            'overig': 'assets/images/portfolio/overig/overig01.jpg'
-        };
-        
-        // Update each category image with the correct path
-        Object.keys(correctPaths).forEach(category => {
-            const portfolioItem = document.querySelector(`.portfolio-item a[href="pages/${category}.html"] img`);
-            if (portfolioItem) {
-                portfolioItem.src = correctPaths[category];
-                console.log(`Fixed static path for ${category}: ${correctPaths[category]}`);
-            }
-        });
     }
     
     // Function to update slideshow images with random selections
@@ -88,17 +63,29 @@ document.addEventListener('DOMContentLoaded', () => {
         const allImages = [];
         Object.keys(data).forEach(category => {
             if (data[category] && data[category].length > 0) {
-                allImages.push(...data[category]);
+                // Get up to 3 random images from each category
+                const categoryImages = [...data[category]];
+                for (let i = 0; i < Math.min(3, categoryImages.length); i++) {
+                    const randomIndex = Math.floor(Math.random() * categoryImages.length);
+                    allImages.push(categoryImages[randomIndex]);
+                    categoryImages.splice(randomIndex, 1); // Remove to avoid duplicates
+                }
             }
         });
         
         if (allImages.length === 0) return;
         
         // Update each slideshow item with a random image
-        slideshowItems.forEach(item => {
-            const randomIndex = Math.floor(Math.random() * allImages.length);
-            const randomImage = allImages[randomIndex];
-            item.style.backgroundImage = `url('${randomImage}')`;
+        slideshowItems.forEach((item, index) => {
+            if (index < allImages.length) {
+                // Use images in sequence from our random selection
+                const randomImage = allImages[index];
+                item.style.backgroundImage = `url('${randomImage}')`;
+            } else {
+                // If we have more slideshow items than images, cycle through
+                const randomIndex = index % allImages.length;
+                item.style.backgroundImage = `url('${allImages[randomIndex]}')`;
+            }
         });
         
         console.log("Updated slideshow with random images");
