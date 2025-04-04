@@ -39,8 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Find the portfolio item for this category
                         const portfolioItem = document.querySelector(`.portfolio-item a[href="pages/${category}.html"] img`);
                         if (portfolioItem) {
-                            portfolioItem.src = randomImage;
-                            console.log(`Updated preview for ${category} with random image: ${randomImage}`);
+                            // Fix the path by removing the "../" prefix if it exists
+                            const correctedPath = randomImage.replace(/^\.\.\//, '');
+                            portfolioItem.src = correctedPath;
+                            console.log(`Updated preview for ${category} with random image: ${correctedPath}`);
                         }
                     }
                 });
@@ -50,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error('Error updating category previews:', error);
-                // No need to fix paths - index.html already has correct paths as fallbacks
             });
     }
     
@@ -63,29 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const allImages = [];
         Object.keys(data).forEach(category => {
             if (data[category] && data[category].length > 0) {
-                // Get up to 3 random images from each category
-                const categoryImages = [...data[category]];
-                for (let i = 0; i < Math.min(3, categoryImages.length); i++) {
-                    const randomIndex = Math.floor(Math.random() * categoryImages.length);
-                    allImages.push(categoryImages[randomIndex]);
-                    categoryImages.splice(randomIndex, 1); // Remove to avoid duplicates
-                }
+                // Get images from this category and fix paths
+                const categoryImages = data[category].map(path => path.replace(/^\.\.\//, ''));
+                allImages.push(...categoryImages);
             }
         });
         
         if (allImages.length === 0) return;
         
         // Update each slideshow item with a random image
-        slideshowItems.forEach((item, index) => {
-            if (index < allImages.length) {
-                // Use images in sequence from our random selection
-                const randomImage = allImages[index];
-                item.style.backgroundImage = `url('${randomImage}')`;
-            } else {
-                // If we have more slideshow items than images, cycle through
-                const randomIndex = index % allImages.length;
-                item.style.backgroundImage = `url('${allImages[randomIndex]}')`;
-            }
+        slideshowItems.forEach(item => {
+            const randomIndex = Math.floor(Math.random() * allImages.length);
+            const randomImage = allImages[randomIndex];
+            item.style.backgroundImage = `url('${randomImage}')`;
         });
         
         console.log("Updated slideshow with random images");
