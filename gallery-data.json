@@ -79,5 +79,11 @@
     "../assets/images/portfolio/overig/overig07.jpg",
     "../assets/images/portfolio/overig/overig08.jpg"
     
+  ],
+
+  "vakantie": [
+    "../assets/images/portfolio/overig/vakantie01.jpg",
+    "../assets/images/portfolio/overig/vakantie02.jpg"
+ 
   ]
 }
