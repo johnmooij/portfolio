@@ -127,8 +127,8 @@
         <section id="contact" class="contact">
             <h2>Contact</h2>
             <p>Heeft u een vraag, wilt u samenwerken, of bent u geïnteresseerd in een van mijn foto's? Neem gerust contact op via onderstaand formulier.</p>
-            <!-- Note: This form needs backend/service integration to actually send emails -->
-            <form action="#" method="POST" id="contact-form">
+
+<!--             <form action="#" method="POST" id="contact-form">
                 <div class="form-group">
                     <label for="name" class="visually-hidden">Naam</label>
                     <input type="text" id="name" name="name" placeholder="Uw Naam" required>
@@ -144,6 +144,22 @@
                 <div class="form-center">
                     <button type="submit">Versturen</button>
                 </div>
+            </form> -->
+
+            <form
+                action="https://formspree.io/f/xblovbbq"
+                method="POST"
+                >
+                <label>
+                    Your email:
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    Your message:
+                    <textarea name="message"></textarea>
+                </label>
+                <!-- your other form fields go here -->
+                <button type="submit">Send</button>
             </form>
         </section> <!-- End #contact -->
     </main>
