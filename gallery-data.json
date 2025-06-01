@@ -31,7 +31,10 @@
     "../assets/images/portfolio/portret/portret17.jpg",
     "../assets/images/portfolio/portret/portret18.jpg",
     "../assets/images/portfolio/portret/portret19.jpg",
-    "../assets/images/portfolio/portret/portret20.jpg"
+    "../assets/images/portfolio/portret/portret20.jpg",
+    "../assets/images/portfolio/portret/portret21.jpg",
+    "../assets/images/portfolio/portret/portret22.jpg",
+    "../assets/images/portfolio/portret/portret23.jpg"
 
   ],
   "kunst": [
@@ -39,8 +42,11 @@
     "../assets/images/portfolio/kunst/kunst02.jpg",
     "../assets/images/portfolio/kunst/kunst03.jpg",
     "../assets/images/portfolio/kunst/kunst04.jpg",
-    "../assets/images/portfolio/kunst/kunst05.jpg"
-  ],
+    "../assets/images/portfolio/kunst/kunst05.jpg",
+    "../assets/images/portfolio/kunst/kunst06.jpg",
+    "../assets/images/portfolio/kunst/kunst07.jpg",
+    "../assets/images/portfolio/kunst/kunst08.jpg"
+  ],  
   "architectuur": [
     "../assets/images/portfolio/architectuur/Architectuur01.jpg",
     "../assets/images/portfolio/architectuur/Architectuur02.jpg",
@@ -64,7 +70,9 @@
     "../assets/images/portfolio/architectuur/Architectuur20.jpg",
     "../assets/images/portfolio/architectuur/Architectuur21.jpg",
     "../assets/images/portfolio/architectuur/Architectuur22.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur23.jpg"
+    "../assets/images/portfolio/architectuur/Architectuur23.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur23.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur24.jpg"
   ],
   "straatfotografie": [
     "../assets/images/portfolio/straatfotografie/straat01.jpg",
