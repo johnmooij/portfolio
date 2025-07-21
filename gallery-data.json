@@ -1,4 +1,38 @@
 {
+  "architectuur": [
+    "../assets/images/portfolio/architectuur/Architectuur01.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur02.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur03.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur04.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur05.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur06.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur07.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur08.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur09.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur10.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur11.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur12.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur13.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur14.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur15.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur16.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur17.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur18.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur19.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur20.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur21.jpg",
+    "../assets/images/portfolio/architectuur/Architectuur22.jpg"
+  ],
+  "kunst": [
+    "../assets/images/portfolio/kunst/kunst01.jpg",
+    "../assets/images/portfolio/kunst/kunst02.jpg",
+    "../assets/images/portfolio/kunst/kunst03.jpg",
+    "../assets/images/portfolio/kunst/kunst04.jpg",
+    "../assets/images/portfolio/kunst/kunst05.jpg",
+    "../assets/images/portfolio/kunst/kunst06.jpg",
+    "../assets/images/portfolio/kunst/kunst07.jpg",
+    "../assets/images/portfolio/kunst/kunst08.jpg"
+  ],
   "natuur": [
     "../assets/images/portfolio/natuur/natuur01.jpg",
     "../assets/images/portfolio/natuur/natuur02.jpg",
@@ -16,10 +50,23 @@
     "../assets/images/portfolio/natuur/natuur14.jpg",
     "../assets/images/portfolio/natuur/natuur15.jpg",
     "../assets/images/portfolio/natuur/natuur16.jpg",
-    "../assets/images/portfolio/natuur/natuur17.jpg",
-    "../assets/images/portfolio/natuur/natuur18.jpg",
-    "../assets/images/portfolio/natuur/natuur19.jpg"
-  ],  
+    "../assets/images/portfolio/natuur/natuur17.jpg"
+
+  ],
+  "overig": [
+    "../assets/images/portfolio/overig/overig01.jpg",
+    "../assets/images/portfolio/overig/overig02.jpg",
+    "../assets/images/portfolio/overig/overig03.jpg",
+    "../assets/images/portfolio/overig/overig04.jpg",
+    "../assets/images/portfolio/overig/overig05.jpg",
+    "../assets/images/portfolio/overig/overig06.jpg",
+    "../assets/images/portfolio/overig/overig07.jpg",
+    "../assets/images/portfolio/overig/overig08.jpg",
+    "../assets/images/portfolio/overig/overig09.jpg",
+    "../assets/images/portfolio/overig/overig10.jpg",
+    "../assets/images/portfolio/overig/overig11.jpg",
+    "../assets/images/portfolio/overig/overig12.jpg"
+  ],
   "portret": [
     "../assets/images/portfolio/portret/portret01.jpg",
     "../assets/images/portfolio/portret/portret02.jpg",
@@ -44,43 +91,6 @@
     "../assets/images/portfolio/portret/portret21.jpg",
     "../assets/images/portfolio/portret/portret22.jpg",
     "../assets/images/portfolio/portret/portret23.jpg"
-
-  ],
-  "kunst": [
-    "../assets/images/portfolio/kunst/kunst01.jpg",
-    "../assets/images/portfolio/kunst/kunst02.jpg",
-    "../assets/images/portfolio/kunst/kunst03.jpg",
-    "../assets/images/portfolio/kunst/kunst04.jpg",
-    "../assets/images/portfolio/kunst/kunst05.jpg",
-    "../assets/images/portfolio/kunst/kunst06.jpg",
-    "../assets/images/portfolio/kunst/kunst07.jpg",
-    "../assets/images/portfolio/kunst/kunst08.jpg"
-  
-  ],      
-  "architectuur": [
-    "../assets/images/portfolio/architectuur/Architectuur01.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur02.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur03.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur04.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur05.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur06.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur07.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur08.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur09.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur10.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur11.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur12.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur13.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur14.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur15.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur16.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur17.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur18.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur19.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur20.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur21.jpg",
-    "../assets/images/portfolio/architectuur/Architectuur22.jpg"
-   
   ],
   "straatfotografie": [
     "../assets/images/portfolio/straatfotografie/straat01.jpg",
@@ -93,22 +103,5 @@
     "../assets/images/portfolio/straatfotografie/straat08.jpg",
     "../assets/images/portfolio/straatfotografie/straat09.jpg",
     "../assets/images/portfolio/straatfotografie/straat10.jpg"
-
-  ],
-  "overig": [
-    "../assets/images/portfolio/overig/overig01.jpg",
-    "../assets/images/portfolio/overig/overig02.jpg",
-    "../assets/images/portfolio/overig/overig03.jpg",
-    "../assets/images/portfolio/overig/overig04.jpg",
-    "../assets/images/portfolio/overig/overig05.jpg",
-    "../assets/images/portfolio/overig/overig06.jpg",
-    "../assets/images/portfolio/overig/overig07.jpg",
-    "../assets/images/portfolio/overig/overig08.jpg",
-    "../assets/images/portfolio/overig/overig09.jpg",
-    "../assets/images/portfolio/overig/overig10.jpg",
-    "../assets/images/portfolio/overig/overig11.jpg",
-    "../assets/images/portfolio/overig/overig12.jpg"
-    
   ]
-
 }
