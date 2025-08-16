@@ -53,7 +53,9 @@
     "../assets/images/portfolio/natuur/natuur17.jpg",
     "../assets/images/portfolio/natuur/natuur18.jpg",
     "../assets/images/portfolio/natuur/natuur19.jpg",
-    "../assets/images/portfolio/natuur/natuur20.jpg"
+    "../assets/images/portfolio/natuur/natuur20.jpg",
+    "../assets/images/portfolio/natuur/natuur21.jpg",
+    "../assets/images/portfolio/natuur/natuur22.jpg"
     
   ],
   "overig": [
@@ -69,6 +71,7 @@
     "../assets/images/portfolio/overig/overig10.jpg",
     "../assets/images/portfolio/overig/overig11.jpg",
     "../assets/images/portfolio/overig/overig12.jpg"
+  
   ],
   "portret": [
     "../assets/images/portfolio/portret/portret01.jpg",
