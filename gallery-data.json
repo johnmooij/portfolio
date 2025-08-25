@@ -31,8 +31,10 @@
     "../assets/images/portfolio/kunst/kunst05.jpg",
     "../assets/images/portfolio/kunst/kunst06.jpg",
     "../assets/images/portfolio/kunst/kunst07.jpg",
-    "../assets/images/portfolio/kunst/kunst08.jpg"
+    "../assets/images/portfolio/kunst/kunst08.jpg",
+    "../assets/images/portfolio/kunst/kunst09.jpg"
   ],
+  
   "natuur": [
     "../assets/images/portfolio/natuur/natuur01.jpg",
     "../assets/images/portfolio/natuur/natuur02.jpg",
